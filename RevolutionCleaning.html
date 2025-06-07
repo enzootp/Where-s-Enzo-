@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SparkleTech | Premium Cleaning Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00ffea;
+            --secondary: #ff00aa;
+            --dark: #111;
+            --light: #f8f8f8;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 0.5rem 5%;
+            box-shadow: 0 5px 20px rgba(0, 255, 234, 0.2);
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(0, 255, 234, 0.7);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0 1.5rem;
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 255, 234, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 0, 170, 0.5);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.7;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            padding: 0 2rem;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            animation: glow 2s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+            }
+            to {
+                text-shadow: 0 0 20px var(--primary), 0 0 30px var(--secondary);
+            }
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .secondary-button {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--primary);
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .secondary-button:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 8rem 5%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,1));
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 10px 30px rgba(0, 255, 234, 0.2);
+            border-color: var(--primary);
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(0, 255, 234, 0.7);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 8rem 5%;
+            background: url('https://images.unsplash.com/photo-1581578021019-e02a4b4c9c9a?ixlib=rb-4.0.3') no-repeat center center/cover;
+            position: relative;
+        }
+        
+        .testimonials:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .testimonial-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-slide {
+            text-align: center;
+            padding: 3rem;
+        }
+        
+        .testimonial-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .testimonial-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .testimonial-text:before,
+        .testimonial-text:after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary);
+            position: absolute;
+        }
+        
+        .testimonial-text:before {
+            top: -20px;
+            left: -20px;
+        }
+        
+        .testimonial-text:after {
+            bottom: -40px;
+            right: -20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        
+        .testimonial-role {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Pricing */
+        .pricing {
+            padding: 8rem 5%;
+            background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.9));
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 234, 0.3);
+        }
+        
+        .pricing-card.featured:before {
+            content: 'POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--secondary);
+            color: white;
+            padding: 0.5rem 2rem;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: var(--light);
+        }
+        
+        .price span {
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+        
+        .features {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+        
+        .features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .features li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Before/After */
+        .before-after {
+            padding: 8rem 5%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,1));
+            text-align: center;
+        }
+        
+        .slider-container {
+            max-width: 1000px;
+            margin: 5rem auto;
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+        }
+        
+        .slider-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        
+        .slider-controls {
+            margin-top: 2rem;
+        }
+        
+        .slider-btn {
+            background: var(--primary);
+            color: var(--dark);
+            border: none;
+            padding: 1rem 2rem;
+            margin: 0 1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .slider-btn:hover {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        /* Contact */
+        .contact {
+            padding: 8rem 5%;
+            background: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3') no-repeat center center/cover;
+            position: relative;
+        }
+        
+        .contact:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .contact-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 255, 234, 0.3);
+        }
+        
+        .form-control.error {
+            border-color: var(--secondary);
+        }
+        
+        .error-message {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .contact-details {
+            margin-bottom: 3rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 1rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(0, 255, 234, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to top, #000, #111);
+            padding: 5rem 5% 2rem;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            display: block;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .menu-toggle {
+                display: block;
+                font-size: 1.5rem;
+                color: white;
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="logo">Sparkle<span>Tech</span></div>
+        <nav>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#before-after">Results</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="cta-button">Book Now</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video autoplay muted loop class="hero-video">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-cleaning-the-floor-with-a-mop-4953-large.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>REVOLUTIONARY CLEANING SERVICES</h1>
+            <p>Experience the future of cleaning with our state-of-the-art techniques and eco-friendly solutions. Where precision meets perfection.</p>
+            <div class="hero-buttons">
+                <button class="cta-button">Get Instant Quote</button>
+                <button class="secondary-button">Explore Services</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="section-title">Premium Services</h2>
+        <p class="section-subtitle">We offer a range of high-tech cleaning solutions tailored to your specific needs.</p>
+        
+        <div class="services-grid">
+            <div class="service-card floating">
+                <div class="service-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Residential Cleaning</h3>
+                <p>Complete home transformation using our advanced cleaning systems and techniques.</p>
+                <button class="secondary-button">Learn More</button>
+            </div>
+            
+            <div class="service-card floating" style="animation-delay: 0.2s;">
+                <div class="service-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Commercial Cleaning</h3>
+                <p>Professional cleaning services for offices, retail spaces, and commercial properties.</p>
+                <button class="secondary-button">Learn More</button>
+            </div>
+            
+            <div class="service-card floating" style="animation-delay: 0.4s;">
+                <div class="service-icon">
+                    <i class="fas fa-soap"></i>
+                </div>
+                <h3>Deep Cleaning</h3>
+                <p>Intensive cleaning that reaches every corner for a truly spotless environment.</p>
+                <button class="secondary-button">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">Client Testimonials</h2>
+        <p class="section-subtitle">Hear what our clients say about our revolutionary cleaning services.</p>
+        
+        <div class="testimonial-container">
+            <div class="testimonial-slide">
+                <div class="testimonial-content">
+                    <p class="testimonial-text">SparkleTech completely transformed our office space. Their attention to detail is unmatched, and their technology-driven approach leaves everything spotless. Truly the Lamborghini of cleaning services!</p>
+                    <p class="testimonial-author">Michael Rodriguez</p>
+                    <p class="testimonial-role">CEO, TechInnovate Inc.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <h2 class="section-title">Transparent Pricing</h2>
+        <p class="section-subtitle">Premium services with competitive pricing. No hidden fees.</p>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Essential Clean</h3>
+                <div class="price">$129<span>/visit</span></div>
+                <ul class="features">
+                    <li>Surface cleaning & dusting</li>
+                    <li>Vacuuming & mopping</li>
+                    <li>Bathroom sanitization</li>
+                    <li>Kitchen cleaning</li>
+                    <li>Up to 3 hours</li>
+                </ul>
+                <button class="cta-button">Select Plan</button>
+            </div>
+            
+            <div class="pricing-card featured">
+                <h3>Premium Clean</h3>
+                <div class="price">$199<span>/visit</span></div>
+                <ul class="features">
+                    <li>All Essential services</li>
+                    <li>Deep cleaning appliances</li>
+                    <li>Window cleaning</li>
+                    <li>Carpet spot treatment</li>
+                    <li>Up to 5 hours</li>
+                    <li>Eco-friendly products</li>
+                </ul>
+                <button class="cta-button">Select Plan</button>
+            </div>
+            
+            <div class="pricing-card">
+                <h3>Elite Clean</h3>
+                <div class="price">$299<span>/visit</span></div>
+                <ul class="features">
+                    <li>All Premium services</li>
+                    <li>Full carpet cleaning</li>
+                    <li>Upholstery cleaning</li>
+                    <li>Grout & tile deep clean</li>
+                    <li>Up to 8 hours</li>
+                    <li>Smart home disinfection</li>
+                </ul>
+                <button class="cta-button">Select Plan</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Section -->
+    <section class="before-after" id="before-after">
+        <h2 class="section-title">Transformations</h2>
+        <p class="section-subtitle">See the dramatic results our technology delivers.</p>
+        
+        <div class="slider-container">
+            <div class="slider-image" style="background-image: url('https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3');"></div>
+        </div>
+        
+        <div class="slider-controls">
+            <button class="slider-btn" id="prev-btn"><i class="fas fa-arrow-left"></i> Previous</button>
+            <button class="slider-btn" id="next-btn">Next <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="section-subtitle">Contact us for a free consultation and quote.</p>
+        
+        <div class="contact-container">
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                        <div class="error-message" id="name-error">Please enter your name</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" required>
+                        <div class="error-message" id="email-error">Please enter a valid email</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                        <div class="error-message" id="phone-error">Please enter a valid phone number</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" class="form-control" rows="5" required></textarea>
+                        <div class="error-message" id="message-error">Please enter your message</div>
+                    </div>
+                    
+                    <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <p>123 Innovation Blvd</p>
+                            <p>Tech City, TC 10001</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <p>+1 (888) 123-4567</p>
+                            <p>Mon-Fri: 8am - 8pm</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <p>info@sparkletech.com</p>
+                            <p>support@sparkletech.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <a href="#" class="footer-logo">Sparkle<span>Tech</span></a>
+        
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 SparkleTech Cleaning Solutions. All rights reserved. Premium Cleaning Technology.
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Header
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form Validation
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            let valid = true;
+            
+            // Reset errors
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelectorAll('.form-control').forEach(el => {
+                el.classList.remove('error');
+            });
+            
+            // Name validation
+            const name = document.getElementById('name');
+            if (name.value.trim() === '') {
+                document.getElementById('name-error').style.display = 'block';
+                name.classList.add('error');
+                valid = false;
+            }
+            
+            // Email validation
+            const email = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                document.getElementById('email-error').style.display = 'block';
+                email.classList.add('error');
+                valid = false;
+            }
+            
+            // Phone validation
+            const phone = document.getElementById('phone');
+            const phoneRegex = /^[0-9]{10,15}$/;
+            if (!phoneRegex.test(phone.value.replace(/\D/g, ''))) {
+                document.getElementById('phone-error').style.display = 'block';
+                phone.classList.add('error');
+                valid = false;
+            }
+            
+            // Message validation
+            const message = document.getElementById('message');
+            if (message.value.trim() === '') {
+                document.getElementById('message-error').style.display = 'block';
+                message.classList.add('error');
+                valid = false;
+            }
+            
+            if (valid) {
+                // Form submission logic would go here
+                alert('Thank you for your message! We will contact you soon.');
+                contactForm.reset();
+            }
+        });
+
+        // Before/After Slider
+        const images = [
+            'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3',
+            'https://images.unsplash.com/photo-1581578021019-e02a4b4c9c9a?ixlib=rb-4.0.3',
+            'https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3'
+        ];
+        
+        let currentImage = 0;
+        const sliderImage = document.querySelector('.slider-image');
+        
+        document.getElementById('next-btn').addEventListener('click', () => {
+            currentImage = (currentImage + 1) % images.length;
+            updateSlider();
+        });
+        
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            currentImage = (currentImage - 1 + images.length) % images.length;
+            updateSlider();
+        });
+        
+        function updateSlider() {
+            sliderImage.style.backgroundImage = `url('${images[currentImage]}')`;
+        }
+
+        // Initialize the slider
+        updateSlider();
+        
+        // Hover effects for service cards
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-20px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
